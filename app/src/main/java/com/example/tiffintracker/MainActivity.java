@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageView premiumLogo = findViewById(R.id.premiumLogo); // Changed from Button to ImageView
+        ImageView premiumLogo = findViewById(R.id.premiumLogo);
         Button buttonMorningArrived = findViewById(R.id.buttonMorningArrived);
         Button buttonMorningNotArrived = findViewById(R.id.buttonMorningNotArrived);
         Button buttonNightArrived = findViewById(R.id.buttonNightArrived);
@@ -180,5 +180,34 @@ public class MainActivity extends AppCompatActivity {
     private String getCurrentDate() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
         return sdf.format(new Date());
+    }
+
+    // Method to retrieve all data for MoreFunctionsActivity
+    public static Map<Long, String> getAllData(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        Map<String, ?> allEntries = prefs.getAll();
+        TreeMap<Long, String> allData = new TreeMap<>();
+
+        for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
+            if (entry.getKey().contains(KEY_MORNING_TIFFIN_ARRIVED) || entry.getKey().contains(KEY_NIGHT_TIFFIN_ARRIVED)) {
+                String[] keyParts = entry.getKey().split("_");
+                if (keyParts.length >= 2) {
+                    long timestamp = Long.parseLong(keyParts[1]);
+                    boolean arrived = (Boolean) entry.getValue();
+                    String arrivedText = arrived ? "Arrived" : "Not Arrived";
+
+                    String notesKey = entry.getKey().contains(KEY_MORNING_TIFFIN_ARRIVED) ? KEY_MORNING_NOTES + "_" + timestamp : KEY_NIGHT_NOTES + "_" + timestamp;
+                    String dateKey = entry.getKey().contains(KEY_MORNING_TIFFIN_ARRIVED) ? KEY_MORNING_DATE + "_" + timestamp : KEY_NIGHT_DATE + "_" + timestamp;
+
+                    String notes = prefs.getString(notesKey, "");
+                    String date = prefs.getString(dateKey, "");
+
+                    String dataText = (entry.getKey().contains(KEY_MORNING_TIFFIN_ARRIVED) ? "Morning" : "Night") + " Data:\nDate: " + date + "\nTiffin Status: " + arrivedText + "\nNotes: " + notes;
+
+                    allData.put(timestamp, dataText);
+                }
+            }
+        }
+        return allData;
     }
 }
