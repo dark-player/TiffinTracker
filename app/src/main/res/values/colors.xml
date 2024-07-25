@@ -1,0 +1,15 @@
+<resources>
+    <color name="button_morning_arrived">#4CAF50</color> <!-- light green -->
+    <color name="button_morning_arrived_pressed">#388E3C</color> <!-- dark green when pressed -->
+
+    <color name="button_morning_not_arrived">#F44336</color> <!-- light red -->
+    <color name="button_morning_not_arrived_pressed">#D32F2F</color> <!-- dark red when pressed -->
+
+    <color name="button_night_arrived">#4CAF50</color> <!-- light green -->
+    <color name="button_night_arrived_pressed">#388E3C</color> <!-- dark green when pressed -->
+
+    <color name="button_night_not_arrived">#F44336</color> <!-- light red -->
+    <color name="button_night_not_arrived_pressed">#D32F2F</color> <!-- dark red when pressed -->
+
+    <color name="button_inactive">#C8E6C9</color> <!-- light green for inactive buttons -->
+</resources>

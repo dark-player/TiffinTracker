@@ -1,0 +1,179 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F0F0"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tiffin Tracker"
+                android:layout_marginLeft="2dp"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/premiumLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_diamond"
+                android:layout_marginStart="8dp"
+                android:contentDescription="Premium" />
+        </LinearLayout>
+
+        <!-- Morning Tiffin Section -->
+        <TextView
+            android:id="@+id/textViewMorning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Did the morning tiffin arrive?"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:padding="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
+
+            <Button
+                android:id="@+id/buttonMorningArrived"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Arrived"
+                android:backgroundTint="@color/button_morning_arrived"
+                android:textColor="#000000"
+                android:layout_marginEnd="10dp" />
+
+            <Button
+                android:id="@+id/buttonMorningNotArrived"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not Arrived"
+                android:backgroundTint="@color/button_morning_not_arrived"
+                android:textColor="#000000" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editTextMorningNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Additional Notes for Morning"
+            android:padding="8dp"
+            android:background="@android:drawable/editbox_background"
+            android:minHeight="90dp"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Night Tiffin Section -->
+        <TextView
+            android:id="@+id/textViewNight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Did the night tiffin arrive?"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:layout_gravity="center"
+            android:padding="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
+
+            <Button
+                android:id="@+id/buttonNightArrived"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Arrived"
+                android:backgroundTint="@color/button_night_arrived"
+                android:textColor="#000000"
+                android:layout_marginEnd="10dp" />
+
+            <Button
+                android:id="@+id/buttonNightNotArrived"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not Arrived"
+                android:backgroundTint="@color/button_night_not_arrived"
+                android:textColor="#000000" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editTextNightNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Additional Notes for Night"
+            android:padding="8dp"
+            android:background="@android:drawable/editbox_background"
+            android:minHeight="90dp"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/buttonSaveData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save Data"
+            android:backgroundTint="#2196F3"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/buttonMoreFunctions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="More Functions"
+            android:backgroundTint="#FF9800"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp" />
+
+        <!-- TextView for Morning Data -->
+        <TextView
+            android:id="@+id/textViewMorningData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone" />
+
+        <!-- TextView for Night Data -->
+        <TextView
+            android:id="@+id/textViewNightData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="16sp"
+            android:visibility="gone" />
+    </LinearLayout>
+</ScrollView>
